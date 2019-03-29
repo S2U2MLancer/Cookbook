@@ -11,10 +11,15 @@ echo $files
 
 ## if
 
+条件判断的格式:
+
+- `[ condition ]`
+- `[ condition ]`
+
 ```
-if [ <test> ]; then
+if <test condition> ;then
   ...
-elif [ <test> ]; then
+elif <test condition>; then
   ...
 else
   ...
@@ -23,7 +28,7 @@ fi
 
 ### 整数测试
 
-- `[ num1 -gt num2 ]`, >
+- `num1 -gt num2`, >
 - `-ge`, >=
 - `-lt`, <
 - `-le`, <=
@@ -40,11 +45,11 @@ fi
 
 ### 字符测试
 
-- `[[ value =~ pattern ]]`, 左边的值能够被右边的pattern正则匹配, pattern如果包含`\`, 则匹配会失败, 需要保存到变量, 然后引入进来.
-- `value1 = value2`, 字符串相等为真
-- `value1 != value2`, 字符串不相等为真
-- `-z value`, 字符串为null则为真
-- `-n value`, 字符串为null则为假
+- `value =~ pattern `, 左边的值能够被右边的pattern正则匹配, pattern如果包含`\`, 则匹配会失败, 需要保存到变量, 然后引入进来.
+- `value1 = value2 `, 字符串相等为真
+- `value1 != value2 `, 字符串不相等为真
+- `-z value `, 字符串为null则为真
+- `-n value `, 字符串为null则为假
 
 ```
 if [ 'str' = 'str' ];then
@@ -54,7 +59,7 @@ fi
 
 ```
 reg='^\w+$'
-if [[ "adf123" =~ $reg ]]; then
+if [ "adf123" =~ $reg ]; then
   echo 'matched'
 else
   echo 'not matched';
@@ -65,6 +70,22 @@ fi
 
 - `-d`, 目录是否存在
 - `-f`, 文件是否存在
+
+```
+if [ -d /boot ]; then
+  echo "existed"
+else
+  echo "not existed"
+fi
+```
+
+```
+if [ -f ./README.md ]; then
+  echo "existed"
+else 
+  echo "not existed"
+fi
+```
 
 ## 循环语句
 
@@ -100,3 +121,4 @@ do
   echo $i
 done
 ```
+
