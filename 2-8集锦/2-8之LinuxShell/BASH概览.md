@@ -107,6 +107,7 @@ delare 设置变量属性
 常用的：
 date +%Y%m%d
 date --date='2 days ago' +%Y%m%d
+date 月日时分年.秒
 ```
 
 ## ls命令
